@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LPET_Chatting</string>
+    <string name="lpet">LPET</string>
+    <string name="developed_by"><![CDATA[Desarrollado con <3 por LPET, Inc.]]></string>
+    <string name="input_your_number">Ingresá tu número de teléfono</string>
+    <string name="phone_number">000 00-0000</string>
+    <string name="send_otp">Enviar código</string>
+    <string name="input_otp_password">Ingresá el código que te enviamos</string>
+    <string name="otp_code">Código</string>
+    <string name="next_step">Siguiente</string>
+    <string name="resend_otp">Reenviar código en 60 seg</string>
+    <string name="input_your_username">Ingresá tu nombre de usuario</string>
+    <string name="username">Nombre</string>
+    <string name="login">Ingresar</string>
+</resources>
