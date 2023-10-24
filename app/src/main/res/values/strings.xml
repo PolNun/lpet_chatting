@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LPET_Chatting</string>
+    <string name="app_name">LPET</string>
     <string name="lpet">LPET</string>
     <string name="developed_by"><![CDATA[Desarrollado con <3 por LPET, Inc.]]></string>
     <string name="input_your_number">Ingresá tu número de teléfono</string>
@@ -12,4 +12,7 @@
     <string name="input_your_username">Ingresá tu nombre de usuario</string>
     <string name="username">Nombre</string>
     <string name="login">Ingresar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_users">Buscar usuarios</string>
 </resources>
