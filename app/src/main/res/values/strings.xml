@@ -12,4 +12,6 @@
     <string name="input_your_username">Ingresá tu nombre de usuario</string>
     <string name="username">Nombre</string>
     <string name="login">Ingresar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
