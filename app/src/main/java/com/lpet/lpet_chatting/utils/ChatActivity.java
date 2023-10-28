@@ -10,21 +10,23 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.Timestamp;
 import com.lpet.lpet_chatting.R;
+import com.lpet.lpet_chatting.models.ChatroomModel;
 import com.lpet.lpet_chatting.models.User;
 
+import java.util.Arrays;
 public class ChatActivity extends AppCompatActivity {
 
     User otherUser;
     String chatroomId;
-
+    ChatroomModel chatroomModel;
     EditText messageInput;
     ImageButton sendMessageBtn;
     ImageButton backBtn;
     TextView otherUsername;
     RecyclerView recyclerView;
     ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +56,24 @@ public class ChatActivity extends AppCompatActivity {
             onBackPressed();
         });
         otherUsername.setText(otherUser.getUsername());
+        getOrCreateChatroomModel();
+    }
+
+    void getOrCreateChatroomModel() {
+        FirebaseUtil.getChatroomReference(chatroomId).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                chatroomModel = task.getResult().toObject(ChatroomModel.class);
+                if (chatroomModel == null) {
+                    //first time chat
+                    chatroomModel = new ChatroomModel(
+                            chatroomId,
+                            Arrays.asList(FirebaseUtil.currentUserId(), otherUser.getUserId()),
+                            Timestamp.now(),
+                            ""
+                    );
+                    FirebaseUtil.getChatroomReference(chatroomId).set(chatroomModel);
+                }
+            }
+        });
     }
 }
