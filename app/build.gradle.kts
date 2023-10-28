@@ -44,6 +44,10 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation ("com.firebaseui:firebase-ui-storage:8.0.2")
+    implementation ("com.google.firebase:firebase-firestore:23.0.0")  // o la versión más reciente
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.0" ) // o la versión más reciente
+
 
     // Country code picker
     implementation("com.hbb20:ccp:2.5.0")
