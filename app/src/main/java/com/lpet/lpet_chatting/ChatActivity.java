@@ -1,5 +1,6 @@
 package com.lpet.lpet_chatting;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,8 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
 import com.lpet.lpet_chatting.models.Chatroom;
+import com.lpet.lpet_chatting.models.Message;
 import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.AndroidUtil;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
@@ -47,10 +52,34 @@ public class ChatActivity extends AppCompatActivity {
 
         otherUserName.setText(otherUser.getUsername());
 
+        sendButton.setOnClickListener(v -> {
+            String message = etMessage.getText().toString().trim();
+            if (message.isEmpty()) return;
+
+            sendMessageToChatroom(message);
+        });
+
         getOrCreateChatRoom();
     }
 
-    void getOrCreateChatRoom() {
+    private void sendMessageToChatroom(String message) {
+        chatroom.setLastMessageTimestamp(Timestamp.now());
+        chatroom.setLastMessageSenderId(FirebaseUtil.currentUserId());
+        FirebaseUtil.getChatroomReference(chatroomId).set(chatroom);
+
+        Message messageObject = new Message(message, FirebaseUtil.currentUserId(), Timestamp.now());
+        FirebaseUtil.getChatroomMessagesReference(chatroomId).add(messageObject)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            etMessage.setText("");
+                        }
+                    }
+                });
+    }
+
+    private void getOrCreateChatRoom() {
         FirebaseUtil.getChatroomReference(chatroomId).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 chatroom = task.getResult().toObject(Chatroom.class);
