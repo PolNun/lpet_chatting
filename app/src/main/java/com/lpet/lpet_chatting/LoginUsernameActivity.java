@@ -61,7 +61,7 @@ public class LoginUsernameActivity extends AppCompatActivity {
         });
     }
 
-    private void setUsername() {
+    void setUsername() {
         String username = usernameInput.getText().toString().trim();
         if (username.isEmpty() || username.length() < 3) {
             usernameInput.setError("El nombre de usuario debe tener al menos 3 caracteres");
@@ -73,7 +73,7 @@ public class LoginUsernameActivity extends AppCompatActivity {
         if (user != null) {
             user.setUsername(username);
         } else {
-            user = new User(phoneNumber, username, Timestamp.now());
+            user = new User(phoneNumber, username, Timestamp.now(), FirebaseUtil.currentUserId());
         }
 
         FirebaseUtil.currentUserDetails().set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
