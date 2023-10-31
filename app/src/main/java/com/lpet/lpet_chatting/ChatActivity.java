@@ -2,6 +2,7 @@ package com.lpet.lpet_chatting;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -9,17 +10,20 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.Query;
+import com.lpet.lpet_chatting.adapters.ChatRecyclerAdapter;
+import com.lpet.lpet_chatting.adapters.SearchUserRecyclerAdapter;
 import com.lpet.lpet_chatting.models.Chatroom;
 import com.lpet.lpet_chatting.models.Message;
 import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.AndroidUtil;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ChatActivity extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     ImageButton backButton;
     TextView otherUserName;
     RecyclerView recyclerView;
+    ChatRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +65,36 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         getOrCreateChatRoom();
+        setupChatRecyclerView();
+    }
+
+    private void setupChatRecyclerView() {
+        Query query = FirebaseUtil.getChatroomMessagesReference(chatroomId)
+                .orderBy("timestamp", Query.Direction.DESCENDING);
+
+        FirestoreRecyclerOptions<Message> options = new FirestoreRecyclerOptions.Builder<Message>()
+                .setQuery(query, Message.class)
+                .build();
+
+        adapter = new ChatRecyclerAdapter(options, getApplicationContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                recyclerView.smoothScrollToPosition(0);
+            }
+        });
     }
 
     private void sendMessageToChatroom(String message) {
         chatroom.setLastMessageTimestamp(Timestamp.now());
         chatroom.setLastMessageSenderId(FirebaseUtil.currentUserId());
+        chatroom.setLastMessage(message);
         FirebaseUtil.getChatroomReference(chatroomId).set(chatroom);
 
         Message messageObject = new Message(message, FirebaseUtil.currentUserId(), Timestamp.now());
@@ -88,6 +118,7 @@ public class ChatActivity extends AppCompatActivity {
                     chatroom = new Chatroom(chatroomId,
                             Arrays.asList(FirebaseUtil.currentUserId(),
                                     otherUser.getUserId()), Timestamp.now(),
+                            "",
                             "");
                     FirebaseUtil.getChatroomReference(chatroomId).set(chatroom);
                 }

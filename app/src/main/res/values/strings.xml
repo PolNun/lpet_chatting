@@ -16,4 +16,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_users">Buscar usuarios</string>
     <string name="hint_write_msg">Escribí un mensaje</string>
+    <string name="update_profile">Actualizar mi perfil</string>
+    <string name="logout">Salir</string>
 </resources>

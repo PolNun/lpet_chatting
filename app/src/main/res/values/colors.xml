@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FF6200EE</color>
+    <color name="primary">#FF6000</color>
+    <color name="sender">#FF7827</color>
     <color name="primary_dark">#FF3700B3</color>
     <color name="primary_light">#FFBB86FC</color>
-    <color name="secondary">#03DAC5</color>
+    <color name="secondary">#072AC8</color>
     <color name="secondary_dark">#018786</color>
     <color name="secondary_light">#BFFFD4</color>
     <color name="black">#FF000000</color>
+    <color name="off_white">#EFEFEF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#C3C3C3</color>
 </resources>
