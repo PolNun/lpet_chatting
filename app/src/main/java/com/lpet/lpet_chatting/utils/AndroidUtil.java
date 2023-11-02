@@ -19,6 +19,7 @@ public class AndroidUtil {
         i.putExtra("userId", user.getUserId());
         i.putExtra("username", user.getUsername());
         i.putExtra("phone", user.getPhone());
+        i.putExtra("fcmToken", user.getFcmToken());
     }
 
     public static User getUserFromIntent(Intent i) {
@@ -26,6 +27,7 @@ public class AndroidUtil {
         user.setUserId(i.getStringExtra("userId"));
         user.setUsername(i.getStringExtra("username"));
         user.setPhone(i.getStringExtra("phone"));
+        user.setFcmToken(i.getStringExtra("fcmToken"));
         return user;
     }
 

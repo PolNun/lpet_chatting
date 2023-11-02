@@ -26,7 +26,15 @@ import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.AndroidUtil;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
 
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Arrays;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 
 public class ChatActivity extends AppCompatActivity {
     User otherUser;
@@ -116,9 +124,65 @@ public class ChatActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             etMessage.setText("");
+                            sendNotification(message);
                         }
                     }
                 });
+    }
+
+    private void sendNotification(String message) {
+        FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                User currentUser = task.getResult().toObject(User.class);
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    JSONObject notificationObject = new JSONObject();
+                    notificationObject.put("title", currentUser.getUsername());
+                    notificationObject.put("body", message);
+
+                    JSONObject dataObject = new JSONObject();
+                    dataObject.put("userId", currentUser.getUserId());
+
+                    jsonObject.put("notification", notificationObject);
+                    jsonObject.put("data", dataObject);
+                    jsonObject.put("to", otherUser.getFcmToken());
+
+                    callApi(jsonObject);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                callApi(jsonObject);
+            }
+        });
+    }
+
+    private void callApi(JSONObject jsonObject) {
+        MediaType JSON = MediaType.get("application/json; charset=utf-8");
+        OkHttpClient client = new OkHttpClient();
+        String url = "https://fcm.googleapis.com/fcm/send";
+        String key = "AAAA6F6j6DM:APA91bHPZDHH4C9Jw5v_fwlweaBgEgeDwbHTQYef1g1ED1sBC7dl10ZECUNHkkDTV7bKyiUzyqDGJD2CrBOqyGAGc85uL8fL8pBS6H7EHwWECdv8ApVeHVaQc0umA_9BlbE-CnywNJ4B";
+        RequestBody body = RequestBody.create(jsonObject.toString(), JSON);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .header("Authorization", "Bearer " + key)
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(okhttp3.Call call, java.io.IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    System.out.println("Notification sent");
+                } else {
+                    System.out.println("Notification failed");
+                }
+            }
+        });
     }
 
     private void getOrCreateChatRoom() {

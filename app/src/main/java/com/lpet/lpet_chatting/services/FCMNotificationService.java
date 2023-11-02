@@ -1,4 +1,6 @@
 package com.lpet.lpet_chatting.services;
 
-public class FCMNotificationService {
+import com.google.firebase.messaging.FirebaseMessagingService;
+
+public class FCMNotificationService extends FirebaseMessagingService {
 }

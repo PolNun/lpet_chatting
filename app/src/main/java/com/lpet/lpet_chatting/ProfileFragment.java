@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.AndroidUtil;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
@@ -72,10 +73,15 @@ public class ProfileFragment extends Fragment {
         });
 
         tvLogout.setOnClickListener(v -> {
-            FirebaseUtil.logout();
-            Intent i = new Intent(getContext(), SplashActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
+            FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    FirebaseUtil.logout();
+                    Intent i = new Intent(getContext(), SplashActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                }
+            });
+
         });
 
         profilePic.setOnClickListener(v -> {
