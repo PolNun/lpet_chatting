@@ -151,7 +151,6 @@ public class ChatActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                callApi(jsonObject);
             }
         });
     }
