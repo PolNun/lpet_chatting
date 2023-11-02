@@ -2,6 +2,7 @@ package com.lpet.lpet_chatting.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,17 +29,25 @@ public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<User, Se
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull UserModelViewHolder holder, int position, @NonNull User model) {
-        holder.username.setText(model.getUsername());
-        holder.phone.setText(model.getPhone());
+    protected void onBindViewHolder(@NonNull UserModelViewHolder holder, int position, @NonNull User user) {
+        holder.username.setText(user.getUsername());
+        holder.phone.setText(user.getPhone());
 
-        if (model.getUserId().equals(FirebaseUtil.currentUserId())) {
-            holder.username.setText(model.getUsername() + " (Vos)");
+        if (user.getUserId().equals(FirebaseUtil.currentUserId())) {
+            holder.username.setText(user.getUsername() + " (Vos)");
         }
+
+        FirebaseUtil.getOtherProfilePicStorageRef(user.getUserId()).getDownloadUrl()
+                .addOnCompleteListener(uriTask -> {
+                    if (uriTask.isSuccessful()) {
+                        Uri downloadUri = uriTask.getResult();
+                        AndroidUtil.setProfilePic(context, downloadUri, holder.profilePic);
+                    }
+                });
 
         holder.itemView.setOnClickListener(v -> {
             Intent i = new Intent(context, ChatActivity.class);
-            AndroidUtil.passUserAsIntent(i, model);
+            AndroidUtil.passUserAsIntent(i, user);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
         });

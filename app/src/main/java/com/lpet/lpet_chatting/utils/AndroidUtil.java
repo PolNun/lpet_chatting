@@ -2,8 +2,12 @@ package com.lpet.lpet_chatting.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.lpet.lpet_chatting.models.User;
 
 public class AndroidUtil {
@@ -23,5 +27,9 @@ public class AndroidUtil {
         user.setUsername(i.getStringExtra("username"));
         user.setPhone(i.getStringExtra("phone"));
         return user;
+    }
+
+    public static void setProfilePic(Context context, Uri imageUri, ImageView imageView) {
+        Glide.with(context).load(imageUri).apply(RequestOptions.circleCropTransform()).into(imageView);
     }
 }

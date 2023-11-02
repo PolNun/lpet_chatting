@@ -1,8 +1,13 @@
 package com.lpet.lpet_chatting;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,9 +19,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.AndroidUtil;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class ProfileFragment extends Fragment {
     ImageView profilePic;
@@ -26,8 +35,23 @@ public class ProfileFragment extends Fragment {
     ProgressBar progressBar;
     TextView tvLogout;
     User currentUser;
+    ActivityResultLauncher<Intent> imagePickLauncher;
+    Uri selectedImageUri;
 
     public ProfileFragment() {
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        imagePickLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent data = result.getData();
+                assert data != null;
+                selectedImageUri = data.getData();
+                AndroidUtil.setProfilePic(getContext(), selectedImageUri, profilePic);
+            }
+        });
     }
 
     @Override
@@ -54,6 +78,20 @@ public class ProfileFragment extends Fragment {
             startActivity(i);
         });
 
+        profilePic.setOnClickListener(v -> {
+            ImagePicker.with(this)
+                    .cropSquare()
+                    .compress(512)
+                    .maxResultSize(512, 512)
+                    .createIntent(new Function1<Intent, Unit>() {
+                        @Override
+                        public Unit invoke(Intent intent) {
+                            imagePickLauncher.launch(intent);
+                            return null;
+                        }
+                    });
+        });
+
         return view;
     }
 
@@ -65,7 +103,15 @@ public class ProfileFragment extends Fragment {
         }
         setInProgress(true);
         currentUser.setUsername(newUsername);
-        updateToFirestore();
+
+        if (selectedImageUri != null) {
+            FirebaseUtil.getCurrentProfilePicStorageRef().putFile(selectedImageUri)
+                    .addOnCompleteListener(task -> {
+                        updateToFirestore();
+                    });
+        } else {
+            updateToFirestore();
+        }
     }
 
     private void updateToFirestore() {
@@ -84,6 +130,15 @@ public class ProfileFragment extends Fragment {
 
     private void getUserdata() {
         setInProgress(true);
+
+        FirebaseUtil.getCurrentProfilePicStorageRef().getDownloadUrl()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        AndroidUtil.setProfilePic(getContext(), downloadUri, profilePic);
+                    }
+                });
+
         FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {
             currentUser = task.getResult().toObject(User.class);
             assert currentUser != null;

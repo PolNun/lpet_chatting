@@ -2,6 +2,7 @@ package com.lpet.lpet_chatting.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,16 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
                 boolean lastMessageIsMine = model.getLastMessageSenderId().equals(FirebaseUtil.currentUserId());
 
                 User otherUser = task.getResult().toObject(User.class);
+
+                assert otherUser != null;
+                FirebaseUtil.getOtherProfilePicStorageRef(otherUser.getUserId()).getDownloadUrl()
+                        .addOnCompleteListener(uriTask -> {
+                            if (uriTask.isSuccessful()) {
+                                Uri downloadUri = uriTask.getResult();
+                                AndroidUtil.setProfilePic(context, downloadUri, holder.profilePic);
+                            }
+                        });
+
                 assert otherUser != null;
                 holder.usernameText.setText(otherUser.getUsername());
                 if (lastMessageIsMine) {

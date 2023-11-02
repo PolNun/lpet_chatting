@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -36,6 +38,7 @@ public class ChatActivity extends AppCompatActivity {
     TextView otherUserName;
     RecyclerView recyclerView;
     ChatRecyclerAdapter adapter;
+    ImageView profilePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,15 @@ public class ChatActivity extends AppCompatActivity {
         backButton = findViewById(R.id.btn_back);
         otherUserName = findViewById(R.id.other_username);
         recyclerView = findViewById(R.id.chat_recycler_view);
+        profilePic = findViewById(R.id.profile_pic);
+
+        FirebaseUtil.getOtherProfilePicStorageRef(otherUser.getUserId()).getDownloadUrl()
+                .addOnCompleteListener(uriTask -> {
+                    if (uriTask.isSuccessful()) {
+                        Uri downloadUri = uriTask.getResult();
+                        AndroidUtil.setProfilePic(this, downloadUri, profilePic);
+                    }
+                });
 
         backButton.setOnClickListener((v) -> {
             onBackPressed();
