@@ -2,7 +2,7 @@
     <string name="app_name">LPET</string>
     <string name="lpet">LPET</string>
     <string name="developed_by"><![CDATA[Desarrollado con <3 por LPET, Inc.]]></string>
-    <string name="input_your_number">Ingresá tu número de teléfono</string>
+    <string name="input_your_number">Ingresá tu número</string>
     <string name="phone_number">000 00-0000</string>
     <string name="send_otp">Enviar código</string>
     <string name="input_otp_password">Ingresá el código que te enviamos</string>

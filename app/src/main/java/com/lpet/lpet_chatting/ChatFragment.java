@@ -12,11 +12,8 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
-import com.lpet.lpet_chatting.adapters.ChatRecyclerAdapter;
 import com.lpet.lpet_chatting.adapters.RecentChatRecyclerAdapter;
-import com.lpet.lpet_chatting.adapters.SearchUserRecyclerAdapter;
 import com.lpet.lpet_chatting.models.Chatroom;
-import com.lpet.lpet_chatting.models.User;
 import com.lpet.lpet_chatting.utils.FirebaseUtil;
 
 public class ChatFragment extends Fragment {

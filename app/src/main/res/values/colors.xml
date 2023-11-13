@@ -2,7 +2,7 @@
 <resources>
     <color name="primary">#FF6000</color>
     <color name="sender">#FF7827</color>
-    <color name="primary_dark">#FF3700B3</color>
+    <color name="primary_dark">#072AC8</color>
     <color name="primary_light">#FFBB86FC</color>
     <color name="secondary">#FFFFFF</color>
     <color name="secondary_dark">#018786</color>
@@ -11,4 +11,5 @@
     <color name="off_white">#EFEFEF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#C3C3C3</color>
+    <color name="text_gray">#B0111111</color>
 </resources>
