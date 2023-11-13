@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="light_gray">#C3C3C3</color>
+    <color name="off_white">#EFEFEF</color>
+    <color name="primary">#FF6000</color>
+    <color name="primary_dark">#FF3700B3</color>
+    <color name="primary_light">#FFBB86FC</color>
+    <color name="secondary">#072AC8</color>
+    <color name="secondary_dark">#018786</color>
+    <color name="secondary_light">#BFFFD4</color>
+    <color name="sender">#FF7827</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">LPET</string>
+    <string name="developed_by"><![CDATA[Desarrollado con <3 por LPET, Inc.]]></string>
+    <string name="gcm_defaultSenderId" translatable="false">998020212787</string>
+    <string name="google_api_key" translatable="false">AIzaSyBEhEPT54F-zuxBOjFhuYxiPhq0MIU-qM4</string>
+    <string name="google_app_id" translatable="false">1:998020212787:android:d7e0ea5c1c8025f93a1b46</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBEhEPT54F-zuxBOjFhuYxiPhq0MIU-qM4</string>
+    <string name="google_storage_bucket" translatable="false">lpet-chatting.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_write_msg">Escribí un mensaje</string>
+    <string name="input_otp_password">Ingresá el código que te enviamos</string>
+    <string name="input_your_number">Ingresá tu número de teléfono</string>
+    <string name="input_your_username">Ingresá tu nombre de usuario</string>
+    <string name="login">Ingresar</string>
+    <string name="logout">Salir</string>
+    <string name="lpet">LPET</string>
+    <string name="next_step">Siguiente</string>
+    <string name="otp_code">Código</string>
+    <string name="phone_number">000 00-0000</string>
+    <string name="project_id" translatable="false">lpet-chatting</string>
+    <string name="resend_otp">Reenviar código en 60 seg</string>
+    <string name="search_users">Buscar usuarios</string>
+    <string name="send_otp">Enviar código</string>
+    <string name="update_profile">Actualizar mi perfil</string>
+    <string name="username">Nombre</string>
+    <style name="Base.Theme.LPET_Chatting" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <style name="Theme.LPET_Chatting" parent="Base.Theme.LPET_Chatting"/>
+</resources>

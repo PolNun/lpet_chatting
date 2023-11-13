@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@color/white"
         android:padding="10dp">
 
         <TextView
@@ -18,10 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/profile_pic_layout"
+            android:layout_centerHorizontal="true"
             android:text="@string/username"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -30,17 +29,17 @@
             layout="@layout/profile_pic_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/btn_back" />
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp" />
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_centerVertical="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_back"
-            app:tint="@color/white" />
+            android:background="@drawable/iconback_dos"
+            app:tint="@color/black" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -50,7 +49,7 @@
         android:layout_above="@+id/bottom_layout"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="0dp"
-        android:backgroundTint="@color/off_white" />
+        android:background="#e5e5e5" />
 
     <RelativeLayout
         android:id="@+id/bottom_layout"
@@ -61,14 +60,14 @@
 
         <EditText
             android:id="@+id/et_msg"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toLeftOf="@+id/btn_send"
+            android:layout_toEndOf="@+id/btn_adjuntar"
             android:background="@drawable/edit_text_rounder_corner"
             android:elevation="4dp"
             android:hint="@string/hint_write_msg"
@@ -81,10 +80,19 @@
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
-            android:src="@drawable/icon_send"
-            app:tint="@color/primary" />
+            android:src="@drawable/icono_enviar" />
+
+        <ImageButton
+            android:id="@+id/btn_adjuntar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@+id/et_msg"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:src="@drawable/iconadjuntar" />
     </RelativeLayout>
 
 </RelativeLayout>

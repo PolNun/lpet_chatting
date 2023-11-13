@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@color/white"
         android:padding="10dp">
 
         <TextView
@@ -18,51 +18,88 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/btn_back"
-            android:text="@string/search_users"
-            android:textColor="@color/white"
-            android:textSize="22sp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/chats"
+            android:textColor="#333333"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_back"
-            app:tint="@color/white" />
+            android:background="@drawable/iconback_dos"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="51dp"
+
+            app:srcCompat="@drawable/icon_config" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_below="@+id/toolbar"
-        android:layout_margin="10dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
 
         <EditText
+            android:id="@+id/search_user_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="-5dp"
+            android:layout_marginBottom="32dp"
             android:layout_toLeftOf="@+id/search_user_btn"
             android:background="@drawable/edit_text_rounder_corner"
+            android:backgroundTint="#e5e5e5"
             android:elevation="4dp"
-            android:id="@+id/search_user_input"
-            android:hint="@string/username"
+           android:layout_centerHorizontal="true"
+            android:hint="@string/buscar"
             android:padding="10dp" />
 
         <ImageButton
             android:id="@+id/search_user_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="36dp"
+            android:layout_toStartOf="@+id/imageView"
             android:padding="4dp"
-            android:src="@drawable/icon_search"
-            app:tint="@color/primary" />
+            android:src="@drawable/icon_buscar" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="36dp"
+            app:srcCompat="@drawable/icon_mas" />
 
     </RelativeLayout>
 
@@ -71,6 +108,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/main_toolbar"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:background="#e5e5e5"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>

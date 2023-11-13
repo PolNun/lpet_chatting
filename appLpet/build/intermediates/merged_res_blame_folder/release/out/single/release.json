@@ -1,0 +1,158 @@
+[
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/menu_bottom_navigation_menu.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/menu/bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_login_otp.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_login_otp.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_profile_pic_view.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/profile_pic_view.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/xml_backup_rules.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_fragment_chat.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_person_icon.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/person_icon.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_main.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_chat_message_recycler_row.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/chat_message_recycler_row.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_phone_icon.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/phone_icon.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_login_username.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_login_username.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_otp_icon.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/otp_icon.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_fragment_profile.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_recent_chat_recycler_row.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/recent_chat_recycler_row.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_icon_back.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/icon_back.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_search_user_recycler_row.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/search_user_recycler_row.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_chat_icon.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/chat_icon.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/xml_data_extraction_rules.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_icon_send.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/icon_send.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_login_phone_number.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_login_phone_number.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_edit_text_rounder_corner.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/edit_text_rounder_corner.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_splash.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_search_user.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_search_user.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_circular_bg.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/circular_bg.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/layout_activity_chat.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/layout/activity_chat.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/drawable_icon_search.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/drawable/icon_search.xml"
+    },
+    {
+        "merged": "com.lpet.lpet_chatting.app-merged_res-36:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.lpet.lpet_chatting.app-main-37:/mipmap-anydpi/ic_launcher.xml"
+    }
+]

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.lpet.lpet_chatting.app-mergeReleaseResources-34:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\godoy\\.gradle\\caches\\transforms-3\\b9849c424a1fc3f2ff2e1de58a1d8c4f\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

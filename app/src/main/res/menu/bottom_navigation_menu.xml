@@ -9,4 +9,8 @@
         android:id="@+id/menu_profile"
         android:icon="@drawable/person_icon"
         android:title="Perfil" />
+    <item
+        android:id="@+id/menu_eventos"
+        android:icon="@drawable/icon_eventos"
+        android:title="Eventos" />
 </menu>

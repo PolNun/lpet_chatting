@@ -18,4 +18,6 @@
     <string name="hint_write_msg">Escribí un mensaje</string>
     <string name="update_profile">Actualizar mi perfil</string>
     <string name="logout">Salir</string>
+    <string name="buscar">Buscar</string>
+    <string name="chats">Chats</string>
 </resources>
