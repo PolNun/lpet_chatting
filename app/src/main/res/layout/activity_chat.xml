@@ -17,10 +17,13 @@
             android:id="@+id/other_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="126dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginEnd="85dp"
+            android:layout_toStartOf="@+id/profile_pic_layout"
+            android:layout_toEndOf="@+id/btn_back"
             android:text="@string/username"
-            android:textColor="@color/black"
+            android:textColor="#343a40"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -29,16 +32,18 @@
             layout="@layout/profile_pic_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
+
+
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="21dp" />
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/iconback_dos"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_back"
             app:tint="@color/black" />
     </RelativeLayout>
 
@@ -49,7 +54,7 @@
         android:layout_above="@+id/bottom_layout"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="0dp"
-        android:background="#e5e5e5" />
+        android:background="#ced4da " />
 
     <RelativeLayout
         android:id="@+id/bottom_layout"
@@ -60,16 +65,17 @@
 
         <EditText
             android:id="@+id/et_msg"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@+id/btn_adjuntar"
+            android:layout_toLeftOf="@+id/btn_send"
             android:background="@drawable/edit_text_rounder_corner"
             android:elevation="4dp"
+            android:backgroundTint="#ced4da"
             android:hint="@string/hint_write_msg"
             android:padding="10dp" />
 
@@ -80,19 +86,10 @@
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
-            android:src="@drawable/icono_enviar" />
-
-        <ImageButton
-            android:id="@+id/btn_adjuntar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@+id/et_msg"
-            android:background="@android:color/transparent"
-            android:padding="8dp"
-            android:src="@drawable/iconadjuntar" />
+            android:src="@drawable/icon_send"
+            app:tint="@color/primary" />
     </RelativeLayout>
 
 </RelativeLayout>
