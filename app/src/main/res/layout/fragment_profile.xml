@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:text="@string/editar_perfil"
+        android:textColor="@color/primary_dark"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/primary"
-        android:text="Editar perfil" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/profile_image"
@@ -31,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/et_borde_inferior"
+        android:background="@drawable/et_borde_inferior_secundario"
         android:elevation="8dp"
         android:hint="@string/username"
         android:inputType="text"
@@ -42,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/et_borde_inferior"
+        android:background="@drawable/et_borde_inferior_secundario"
         android:elevation="8dp"
         android:enabled="false"
         android:hint="@string/phone_number"
@@ -61,7 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_rounder_corner"
-            android:text="@string/update_profile" />
+            android:text="@string/update_profile"
+            app:backgroundTint="@color/primary_dark" />
 
         <ProgressBar
             android:id="@+id/profile_progress_bar"
