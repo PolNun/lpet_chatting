@@ -24,7 +24,7 @@
         android:background="@drawable/circular_bg"
         android:backgroundTint="@color/primary"
         android:scaleType="centerCrop"
-        android:src="@drawable/profile" />
+        android:src="@drawable/profile_default" />
 
     <EditText
         android:id="@+id/et_username"

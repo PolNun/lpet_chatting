@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/btn_back"
+            android:layout_toEndOf="@+id/btn_back"
             android:text="@string/search_users"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -42,13 +42,16 @@
         android:layout_margin="10dp">
 
         <EditText
+            android:id="@+id/search_user_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_toLeftOf="@+id/search_user_btn"
-            android:background="@drawable/edit_text_rounder_corner"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@+id/search_user_btn"
+            android:background="@drawable/et_borde_inferior_secundario"
             android:elevation="4dp"
-            android:id="@+id/search_user_input"
             android:hint="@string/username"
             android:padding="10dp" />
 
@@ -58,11 +61,14 @@
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="4dp"
             android:src="@drawable/icon_search"
-            app:tint="@color/primary" />
+            app:tint="@color/primary_dark" />
 
     </RelativeLayout>
 
